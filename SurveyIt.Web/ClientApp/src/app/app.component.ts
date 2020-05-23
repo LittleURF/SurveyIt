@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('/api/v1/surveys').subscribe(values => {
-    console.log(values);
-    });
+    // this.http.get('/api/v1/surveys').subscribe(values => {
+    // console.log(values);
+    // });
   }
 }
