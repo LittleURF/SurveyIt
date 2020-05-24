@@ -5,8 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DbContexts\" />
-    <Folder Include="Repositories\" />
+    <Compile Remove="Migrations\20200523231322_Initial.cs" />
+    <Compile Remove="Migrations\20200523231322_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200523233832_Initial.cs" />
+    <Compile Remove="Migrations\20200523233832_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200523234340_Initial.cs" />
+    <Compile Remove="Migrations\20200523234340_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SurveyIt.Domain\SurveyIt.Domain.csproj" />
   </ItemGroup>
 
 </Project>
