@@ -29,7 +29,7 @@ namespace SurveyIt.Infrastructure.Repositories
             return _context.Surveys
                 .Include(s => s.Creator)
                 .Include(s => s.Questions)
-                .Include(s => s.Completions)
+                .Include(s => s.Completions).ThenInclude(c => c.Answers)
                 .SingleOrDefault(s => s.Id == (int)id);
         }
     }

@@ -11,6 +11,5 @@ namespace SurveyIt.Web.DTOs
         public int Id { get; set; }
         public int QuestionId { get; set; }
         public string Value { get; set; }
-        public Completion Completion { get; set; }
     }
 }

@@ -9,8 +9,6 @@ using SurveyIt.Domain.Aggregates.SurveyAggregate;
 using SurveyIt.Infrastructure.Repositories;
 using SurveyIt.Web.DTOs;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace SurveyIt.Web.Controllers
 {
     [ApiController]
@@ -28,12 +26,26 @@ namespace SurveyIt.Web.Controllers
             _surveyRepository = surveyRepository;
         }
 
-        [HttpGet]
         // api/v1/surveys
+        [HttpGet]
         public ActionResult<List<SurveyDTO>> GetSurveys()
         {
             var surveys = _surveyRepository.GetAll();
+
             return _mapper.Map<List<SurveyDTO>>(surveys);
+        }
+
+        // api/v1/surveys/5
+        [HttpGet("{id}")]
+        public ActionResult<SurveyDTO> GetSurvey(int id)
+        {
+            var survey = _surveyRepository.GetById(id);
+            if (survey == null)
+            {
+                return NotFound();
+            }
+
+            return _mapper.Map<SurveyDTO>(survey);
         }
 
     }

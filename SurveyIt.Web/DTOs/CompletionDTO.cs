@@ -10,6 +10,6 @@ namespace SurveyIt.Web.DTOs
     {
         public int Id { get; set; }
         public DateTime CompletionDate { get; set; }
-        public List<Answer> Answers { get; set; }
+        public List<AnswerDTO> Answers { get; set; }
     }
 }
