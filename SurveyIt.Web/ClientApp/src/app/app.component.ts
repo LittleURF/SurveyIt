@@ -10,13 +10,10 @@ import { Observable, throwError, Subscriber } from 'rxjs';
 export class AppComponent implements OnInit {
   title = 'ClientApp';
 
-  constructor(private http: HttpClient) {
-
+  constructor() {
   }
 
   ngOnInit(): void {
-    // this.http.get('/api/v1/surveys').subscribe(values => {
-    // console.log(values);
-    // });
+
   }
 }

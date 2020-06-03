@@ -1,7 +1,15 @@
+@import "../../../variables.scss";
+
 :host {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: normal;
+  color: $primary-light;
 }
 
 .surveys {
@@ -11,8 +19,32 @@
     width: 90%;
 }
 
-.mat-display-1 {
-    margin: 20px 0px;
+.checkout-button {
+  display: inline-block;
+  position: relative;
+  width: 10rem;
+  height: 1.3rem;
+  font-size: 1rem;
+  padding: 1em;
+  background-color: $primary-light;
+  box-shadow: 1px 2px 3px $gray;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 1s;
+
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 1s;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover span {
+    transform: translate(-50%, -50%) rotateY(360deg);
+  }
 }
 
 @media (min-width: 992px) {
@@ -21,7 +53,7 @@
     }
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
     .surveys {
         width: 60%;
     }

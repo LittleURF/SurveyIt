@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './layout/nav/nav.component';
@@ -15,6 +13,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FeaturedComponent } from './home/featured/featured.component';
 import { SurveyFeaturedComponent } from './surveys/survey-featured/survey-featured.component';
 import { SurveysMainComponent } from './surveys/surveys-main/surveys-main.component';
+import { RatingStarsComponent } from './rating-stars/rating-stars.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +24,7 @@ import { SurveysMainComponent } from './surveys/surveys-main/surveys-main.compon
     FeaturedComponent,
     SurveyFeaturedComponent,
     SurveysMainComponent,
+    RatingStarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +32,6 @@ import { SurveysMainComponent } from './surveys/surveys-main/surveys-main.compon
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
