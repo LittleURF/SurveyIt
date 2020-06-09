@@ -10,8 +10,9 @@
   </div>
   <div class="questions">
     <app-question
-     *ngFor="let question of survey.questions"
+     *ngFor="let question of survey.questions; let i = index"
       [question]="question"
+      [index]="i"
       class="question">
     </app-question>
   </div>

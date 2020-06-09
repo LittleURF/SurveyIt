@@ -17,6 +17,9 @@ import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { QuestionComponent } from './surveys/survey-details/question/question.component';
+import { OpenAnswerComponent } from './surveys/survey-details/question/answers/open-answer/open-answer.component';
+import { YesOrNoAnswerComponent } from './surveys/survey-details/question/answers/yes-or-no-answer/yes-or-no-answer.component';
+import { RatingAnswerComponent } from './surveys/survey-details/question/answers/rating-answer/rating-answer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { QuestionComponent } from './surveys/survey-details/question/question.co
     HomeComponent,
     NotFoundComponent,
     QuestionComponent,
+    OpenAnswerComponent,
+    YesOrNoAnswerComponent,
+    RatingAnswerComponent,
   ],
   imports: [
     BrowserModule,

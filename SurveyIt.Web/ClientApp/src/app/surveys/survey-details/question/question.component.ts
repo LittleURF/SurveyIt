@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Question } from 'src/app/core/models/question';
+import { QuestionType } from 'src/app/core/enums/question-type';
 
 @Component({
   selector: 'app-question',
@@ -8,10 +9,13 @@ import { Question } from 'src/app/core/models/question';
 })
 export class QuestionComponent implements OnInit {
   @Input() question: Question;
+  @Input() index: number;
+  questionType = QuestionType;
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
