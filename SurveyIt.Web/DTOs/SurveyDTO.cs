@@ -13,6 +13,7 @@ namespace SurveyIt.Web.DTOs
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
         public DateTime CreationDate { get; set; }
         public UserDTO Creator { get; set; }
         public List<QuestionDTO> Questions { get; set; }

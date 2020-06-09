@@ -14,4 +14,8 @@ export class SurveyService {
   getAll() : Observable<Survey[]> {
     return this.http.get<Survey[]>('/api/v1/surveys');
   }
+
+  getById(id: number) {
+    return this.http.get<Survey>(`/api/v1/surveys/${id}`);
+  }
 }

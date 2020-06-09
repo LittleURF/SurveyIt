@@ -1,0 +1,101 @@
+@import "../../../variables";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: [first-col] 1fr repeat(6, 1fr) 1fr [last-col];
+  grid-template-rows: [first-row]6.5rem 8rem minmax(25rem, auto) 7rem [last-row];
+  width: 80%;
+  min-height: 30rem;
+  margin: 3rem auto;
+  background-color: rgb(241, 240, 240);
+  box-shadow: 0px 0px 5px black;
+}
+
+
+
+.main-image-wrapper {
+  grid-area: first-row / first-col / 3 / 3;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px black;
+  }
+}
+
+.title-wrapper {
+  grid-area: first-row / 3 / 2 / last-col;
+  align-self: center;
+  padding: 0px 10px 0px 30px;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin: 0;
+  }
+}
+
+.description-wrapper {
+  grid-area: 2 / 3 / 3 / last-col;
+  align-self: start;
+  height: 100%;
+  padding: 0px 10px 0px 30px;
+  position: relative;
+  font-size: 1.3rem;
+
+  p {
+    margin-top: 0px;
+  }
+}
+
+.description-wrapper::after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 1px;
+  width: 100%;
+  background-color: $gray;
+}
+
+.questions {
+  grid-area: 3 / first-col / 4 / last-col;
+}
+
+.buttons {
+  grid-area: 4 / 1 / last-row / last-col;
+  justify-self: center;
+
+  a {
+    display: inline-block;
+    width: 8rem;
+    height: 1.2rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.2rem;
+    padding: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+  }
+
+  .button-submit {
+    color: white;
+    margin-right: 1em;
+    border: 1px solid rgb(170, 168, 168);
+    background-color: $gray;
+  }
+
+  .button-results {
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(170, 168, 168);
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 65%;
+  }
+}

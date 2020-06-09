@@ -1,9 +1,10 @@
-@import "../../../variables.scss";
+@import "../../../../variables.scss";
 
 :host {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 4rem;
 }
 
 h2 {

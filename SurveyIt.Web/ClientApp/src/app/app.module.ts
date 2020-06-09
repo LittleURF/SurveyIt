@@ -8,12 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { HeaderComponent } from './layout/header/header.component';
+import { HeaderComponent } from './pages/home/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { FeaturedComponent } from './home/featured/featured.component';
-import { SurveyFeaturedComponent } from './surveys/survey-featured/survey-featured.component';
-import { SurveysMainComponent } from './surveys/surveys-main/surveys-main.component';
-import { RatingStarsComponent } from './rating-stars/rating-stars.component';
+import { FeaturedComponent } from './pages/home/featured/featured.component';
+import { SurveyPreviewComponent } from './surveys/survey-preview/survey-preview.component';
+import { RatingStarsComponent } from './surveys/rating-stars/rating-stars.component';
+import { SurveyDetailsComponent } from './surveys/survey-details/survey-details.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { QuestionComponent } from './surveys/survey-details/question/question.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,12 @@ import { RatingStarsComponent } from './rating-stars/rating-stars.component';
     HeaderComponent,
     FooterComponent,
     FeaturedComponent,
-    SurveyFeaturedComponent,
-    SurveysMainComponent,
+    SurveyPreviewComponent,
     RatingStarsComponent,
+    SurveyDetailsComponent,
+    HomeComponent,
+    NotFoundComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,

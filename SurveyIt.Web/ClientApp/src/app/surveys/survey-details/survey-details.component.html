@@ -1,0 +1,22 @@
+<div *ngIf="survey" class="wrapper">
+  <div class="main-image-wrapper">
+    <img src="../../../assets/img/babyYoda.jpeg" alt="">
+  </div>
+  <div class="title-wrapper">
+    <h1>{{ survey.title }}</h1>
+  </div>
+  <div class="description-wrapper">
+    <p>{{ survey.description || 'No description provided' }} </p>
+  </div>
+  <div class="questions">
+    <app-question
+     *ngFor="let question of survey.questions"
+      [question]="question"
+      class="question">
+    </app-question>
+  </div>
+  <div class="buttons">
+    <a *ngIf="!isCompleted" routerLink="" class="button-submit">Submit!</a>
+    <a *ngIf="isCompleted" routerLink="" class="button-results">Results</a>
+  </div>
+</div>

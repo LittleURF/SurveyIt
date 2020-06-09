@@ -28,6 +28,7 @@ namespace SurveyIt.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatorId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
                     CreationDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

@@ -48,5 +48,16 @@ namespace SurveyIt.Web.Controllers
             return _mapper.Map<SurveyDTO>(survey);
         }
 
+        // api/v1/surveys
+        [HttpPost]
+        public ActionResult AddSurvey(SurveyDTO survey)
+        {
+            var newSurvey = new Survey(survey.Title);
+            throw new NotImplementedException();
+            //_surveyRepository.Insert(newSurvey);
+            _surveyRepository.Save();
+
+            return CreatedAtAction(nameof(GetSurvey), newSurvey.Id);
+        }
     }
 }

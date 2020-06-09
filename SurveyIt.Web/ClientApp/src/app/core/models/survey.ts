@@ -7,6 +7,7 @@ import { Completion } from './completion';
 export class Survey implements Deserializable {
     id: number;
     title: string;
+    description: string;
     creationDate: Date;
     creator: User;
     questions: Question[];

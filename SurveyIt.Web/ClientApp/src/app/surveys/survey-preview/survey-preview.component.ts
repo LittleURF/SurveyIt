@@ -4,14 +4,14 @@ import { Survey } from 'src/app/core/models/survey';
 import { Question } from 'src/app/core/models/question';
 
 @Component({
-  selector: 'app-survey-featured',
-  templateUrl: './survey-featured.component.html',
-  styleUrls: ['./survey-featured.component.scss']
+  selector: 'app-survey-preview',
+  templateUrl: './survey-preview.component.html',
+  styleUrls: ['./survey-preview.component.scss']
 })
-export class SurveyFeaturedComponent implements OnInit {
+export class SurveyPreviewComponent implements OnInit {
   @Input() survey : Survey;
   filteredQuestions: Question[];
-  
+
   constructor() { }
 
   ngOnInit(): void {
