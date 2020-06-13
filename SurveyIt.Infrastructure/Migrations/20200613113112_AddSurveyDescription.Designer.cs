@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurveyIt.Infrastructure.DbContexts;
 
 namespace SurveyIt.Infrastructure.Migrations
 {
     [DbContext(typeof(appContext))]
-    partial class SurveyContextModelSnapshot : ModelSnapshot
+    [Migration("20200613113112_AddSurveyDescription")]
+    partial class AddSurveyDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,12 +131,9 @@ namespace SurveyIt.Infrastructure.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("SurveyIt.Domain.Aggregates.SurveyAggregate.Answer", b =>

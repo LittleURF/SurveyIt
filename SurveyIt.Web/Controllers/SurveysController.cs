@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
 using SurveyIt.Infrastructure.Repositories;
 using SurveyIt.Web.DTOs;
+using SurveyIt.Web.DTOs.CreateDTOs;
 
 namespace SurveyIt.Web.Controllers
 {
@@ -35,6 +36,15 @@ namespace SurveyIt.Web.Controllers
             return _mapper.Map<List<SurveyDTO>>(surveys);
         }
 
+        // api/v1/surveys/featured
+        [HttpGet("featured")]
+        public ActionResult<List<SurveyDTO>> GetFeateredSurveys()
+        {
+            var surveys = _surveyRepository.GetAll().Take(4);
+
+            return _mapper.Map<List<SurveyDTO>>(surveys);
+        }
+
         // api/v1/surveys/5
         [HttpGet("{id}")]
         public ActionResult<SurveyDTO> GetSurvey(int id)
@@ -50,14 +60,17 @@ namespace SurveyIt.Web.Controllers
 
         // api/v1/surveys
         [HttpPost]
-        public ActionResult AddSurvey(SurveyDTO survey)
+        public ActionResult AddSurvey(CreateSurveyDTO survey)
         {
-            var newSurvey = new Survey(survey.Title);
-            throw new NotImplementedException();
-            //_surveyRepository.Insert(newSurvey);
+            var newSurvey = _mapper.Map<Survey>(survey);
+            newSurvey.SetCreationDateNow();
+
+            _surveyRepository.Insert(newSurvey);
             _surveyRepository.Save();
 
-            return CreatedAtAction(nameof(GetSurvey), newSurvey.Id);
+            _surveyRepository.GetById(newSurvey.Id);
+
+            return CreatedAtAction(nameof(GetSurvey), new { id = newSurvey.Id }, _mapper.Map<SurveyDTO>(newSurvey));
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
+using SurveyIt.Domain.Aggregates.UserAggregate;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SurveyIt.Infrastructure.DbContexts
 {
-    public class SurveyContext : DbContext
+    public class appContext : DbContext
     {
-        public SurveyContext(DbContextOptions<SurveyContext> options) : base(options)
+        public appContext(DbContextOptions<appContext> options) : base(options)
         {
 
         }
@@ -17,6 +18,7 @@ namespace SurveyIt.Infrastructure.DbContexts
         public DbSet<Completion> Completions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<User> Users { get; set; }
 
         // do auto setting of user/date
         // get weird properties out of domain entities?
@@ -25,13 +27,13 @@ namespace SurveyIt.Infrastructure.DbContexts
         {
 
             modelBuilder.Entity<Survey>()
-             .HasOne(s => s.Creator)
-             .WithMany(c => c.Surveys)
+             .HasOne<User>()
+             .WithMany()
              .HasForeignKey(s => s.CreatorId);
 
             modelBuilder.Entity<Completion>()
-             .HasOne(s => s.CompletingUser)
-             .WithMany(c => c.Completions)
+             .HasOne<User>()
+             .WithMany()
              .HasForeignKey(s => s.CompletingUserId)
              .OnDelete(DeleteBehavior.NoAction);
         }

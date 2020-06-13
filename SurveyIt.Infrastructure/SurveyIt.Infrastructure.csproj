@@ -11,6 +11,10 @@
     <Compile Remove="Migrations\20200523233832_Initial.Designer.cs" />
     <Compile Remove="Migrations\20200523234340_Initial.cs" />
     <Compile Remove="Migrations\20200523234340_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200613112800_test.cs" />
+    <Compile Remove="Migrations\20200613112800_test.Designer.cs" />
+    <Compile Remove="Migrations\20200613113054_AddDescriptionToSurvey.cs" />
+    <Compile Remove="Migrations\20200613113054_AddDescriptionToSurvey.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

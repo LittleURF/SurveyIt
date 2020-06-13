@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SurveyIt.Domain.Aggregates.UserAggregate
 {
-    interface ISurveyRepository
+    public interface IUserRepository : IRepository<User>
     {
     }
 }

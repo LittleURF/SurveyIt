@@ -10,10 +10,10 @@ namespace SurveyIt.Infrastructure.Repositories
 {
     public abstract class Repository<T> where T : AggregateRoot
     {
-        protected readonly SurveyContext _context;
+        protected readonly appContext _context;
         private readonly DbSet<T> _entities;
 
-        public Repository(SurveyContext surveyContext)
+        public Repository(appContext surveyContext)
         {
             _context = surveyContext;
             _entities = _context.Set<T>();

@@ -2,6 +2,7 @@
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
 using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Web.DTOs;
+using SurveyIt.Web.DTOs.CreateDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ namespace SurveyIt.Web.Mappings
             CreateMap<Question, QuestionDTO>();
             CreateMap<Completion, CompletionDTO>();
             CreateMap<Answer, AnswerDTO>();
+
+            CreateMap<CreateSurveyDTO, Survey>();
+            CreateMap<CreateQuestionDTO, Question>();
+            CreateMap<CreateCompletionDTO, Completion>();
+            CreateMap<CreateAnswerDTO, Answer>();
         }
     }
 }

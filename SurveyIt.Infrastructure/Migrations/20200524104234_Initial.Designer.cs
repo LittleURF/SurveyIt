@@ -9,7 +9,7 @@ using SurveyIt.Infrastructure.DbContexts;
 
 namespace SurveyIt.Infrastructure.Migrations
 {
-    [DbContext(typeof(SurveyContext))]
+    [DbContext(typeof(appContext))]
     [Migration("20200524104234_Initial")]
     partial class Initial
     {

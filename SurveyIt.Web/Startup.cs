@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
+using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Infrastructure.DbContexts;
 using SurveyIt.Infrastructure.Repositories;
 using SurveyIt.Web.Mappings;
@@ -36,8 +37,9 @@ namespace SurveyIt
 
             services.AddAutoMapper(typeof(MappingProfile));
 
-            services.AddDbContext<SurveyContext>(c => c.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<appContext>(c => c.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<ISurveyRepository, SurveyRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
         }
 

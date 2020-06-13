@@ -10,15 +10,14 @@ namespace SurveyIt.Infrastructure.Repositories
 {
     public class SurveyRepository : Repository<Survey>, ISurveyRepository
     {
-        public SurveyRepository(SurveyContext surveyContext)
-            :base(surveyContext)
+        public SurveyRepository(appContext appContext)
+            :base(appContext)
         {
         }
 
         public override IEnumerable<Survey> GetAll()
         {
             return _context.Surveys
-                .Include(s => s.Creator)
                 .Include(s => s.Questions)
                 .Include(s => s.Completions)
                 .AsEnumerable();
@@ -27,10 +26,26 @@ namespace SurveyIt.Infrastructure.Repositories
         public override Survey GetById(object id)
         {
             return _context.Surveys
-                .Include(s => s.Creator)
                 .Include(s => s.Questions)
                 .Include(s => s.Completions).ThenInclude(c => c.Answers)
                 .SingleOrDefault(s => s.Id == (int)id);
+        }
+
+        public Completion GetCompletion(int completionId)
+        {
+            return _context.Completions
+                .Include(s => s.Answers)
+                .Include(s => s.Survey)
+                .SingleOrDefault(s => s.Id == completionId);
+        }
+
+        public List<Completion> GetCompletionsOfSurvey(int surveyId)
+        {
+            return _context.Completions
+                .Where(c => c.SurveyId == surveyId)
+                .Include(s => s.Answers)
+                .Include(s => s.Survey)
+                .ToList();
         }
     }
 }
