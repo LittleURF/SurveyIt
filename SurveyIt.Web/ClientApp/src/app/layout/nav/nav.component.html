@@ -9,12 +9,8 @@
         <li><a href="#careers">Contact</a></li>
       <!-- If not registered -->
       <div class="right-side-nav-items">
-        <li *ngIf="!authService.loggedIn">
-          <a (click)="authService.login()">Login</a>
-        </li>
-        <li *ngIf="authService.loggedIn">
-          <a (click)="authService.logout()">Logout</a>
-        </li>
+        <li><a href="#contact">Login</a></li>
+        <li><a href="#contact">Register</a></li>
       </div>
 
       <!-- If Registered -->

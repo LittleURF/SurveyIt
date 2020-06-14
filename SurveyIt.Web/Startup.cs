@@ -1,5 +1,4 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
 using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Infrastructure.DbContexts;
@@ -35,17 +33,6 @@ namespace SurveyIt
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist/ClientApp";
-            });
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                // dont care about hiding that for an educational project
-                options.Authority = "https://littleurfdeving.eu.auth0.com/"; 
-                options.Audience = "SurveyItEverything";
             });
 
             services.AddAutoMapper(typeof(MappingProfile));
@@ -76,9 +63,6 @@ namespace SurveyIt
             }
 
             app.UseRouting();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
