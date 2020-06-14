@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
-using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Web.DTOs;
 using SurveyIt.Web.DTOs.CreateDTOs;
 

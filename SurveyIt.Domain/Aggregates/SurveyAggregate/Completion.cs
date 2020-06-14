@@ -1,5 +1,4 @@
-﻿using SurveyIt.Domain.Aggregates.UserAggregate;
-using SurveyIt.Domain.Exceptions;
+﻿using SurveyIt.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,11 +33,14 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
             if (CompletingUserId == 0)
                 throw new MissingDataException("Completing User Id unspecified");
 
+            if (!IsNotAlreadyCompleted())
+                throw new RepeatedCompletionException("The survey has already been completed by this user");
+
             if (!AreQuestionsAnsweredFromCurrentSurvey())
-                throw new IdMismatchedException("Question ids specified in the answers list, do not exist on the specified Survey.");
+                throw new IdMismatchedException("Question ids specified in the answers list, do not exist on the specified Survey");
 
             if (!AreAllQuestionsAnswered())
-                throw new MissingDataException("Not all questions of the survey are answered.");
+                throw new MissingDataException("Not all questions of the survey are answered");
         }
 
         public void SetCompletionDateNow()
@@ -68,6 +70,15 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
 
             bool doIdsCover = questionsIds.Except(answeredQuestionsIds).Count() == 0;
             if (!doIdsCover)
+                return false;
+
+            return true;
+        }
+
+        private bool IsNotAlreadyCompleted() 
+        {
+            var usersWithCompleted = Survey.Completions.Select(s => s.CompletingUserId);
+            if (usersWithCompleted.Contains(CompletingUserId))
                 return false;
 
             return true;

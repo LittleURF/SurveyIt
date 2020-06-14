@@ -14,8 +14,4 @@ export class NavComponent {
   constructor(public authService: AuthService){
 
   }
-
-  showInfo(val) {
-    console.log(val);
-  }
 }

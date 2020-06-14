@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
-using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Web.DTOs;
 using SurveyIt.Web.DTOs.CreateDTOs;
 using System;
@@ -14,7 +13,6 @@ namespace SurveyIt.Web.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDTO>();
             CreateMap<Survey, SurveyDTO>();
             CreateMap<Question, QuestionDTO>();
             CreateMap<Completion, CompletionDTO>();

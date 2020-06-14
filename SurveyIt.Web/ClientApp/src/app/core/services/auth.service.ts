@@ -15,7 +15,7 @@ export class AuthService {
       domain: 'littleurfdeving.eu.auth0.com',
       client_id: 'QPyMAvUsfsGf6JyCXVc6dp2bukNx5lfq',
       redirect_uri: `${window.location.origin}`,
-      audience: "SurveyItEverything"
+      audience: 'SurveyItEverything'
     })
   ) as Observable<Auth0Client>).pipe(
     shareReplay(1), // Every subscription receives the same shared value

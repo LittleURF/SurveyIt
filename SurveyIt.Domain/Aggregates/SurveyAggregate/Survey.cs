@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Domain.Exceptions;
 using System;
 using System.Collections.Generic;

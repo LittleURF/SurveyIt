@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
-using SurveyIt.Domain.Aggregates.UserAggregate;
 using SurveyIt.Infrastructure.DbContexts;
 using SurveyIt.Infrastructure.Repositories;
 using SurveyIt.Web.Mappings;
@@ -52,8 +51,6 @@ namespace SurveyIt
 
             services.AddDbContext<appContext>(c => c.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<ISurveyRepository, SurveyRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

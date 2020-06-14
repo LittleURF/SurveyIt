@@ -7,7 +7,6 @@
         <li><a href="#work">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#careers">Contact</a></li>
-      <!-- If not registered -->
       <div class="right-side-nav-items">
         <li *ngIf="!authService.loggedIn">
           <a (click)="authService.login()">Login</a>
@@ -16,9 +15,6 @@
           <a (click)="authService.logout()">Logout</a>
         </li>
       </div>
-
-      <!-- If Registered -->
-      <!-- <li><a href="#user">Nickname</a></li> -->
     </ul>
   </div>
 </nav>
