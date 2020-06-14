@@ -3,7 +3,7 @@
   <p class="question-text">{{ question.text }}</p>
 </div>
 <div [ngSwitch]="question.type" class="answer">
-  <app-open-answer *ngSwitchCase="questionType.Open"></app-open-answer>
-  <app-yes-or-no-answer *ngSwitchCase="questionType.YesOrNo"></app-yes-or-no-answer>
-  <app-rating-answer *ngSwitchCase="questionType.Rating"></app-rating-answer>
+  <app-open-answer *ngSwitchCase="questionType.Open" [index]="index" [parentForm]="parentForm"></app-open-answer>
+  <app-yes-or-no-answer *ngSwitchCase="questionType.YesOrNo" [index]="index" [parentForm]="parentForm"></app-yes-or-no-answer>
+  <app-rating-answer *ngSwitchCase="questionType.Rating" [index]="index" [parentForm]="parentForm"></app-rating-answer>
 </div>

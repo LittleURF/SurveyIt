@@ -13,7 +13,7 @@ export class FeaturedComponent implements OnInit {
   constructor(private surveyService : SurveyService) { }
 
   ngOnInit(): void {
-    this.surveyService.getAll().subscribe((data: Survey[]) => {
+    this.surveyService.getFeatured().subscribe((data: Survey[]) => {
       this.surveys = data;
     });
   }

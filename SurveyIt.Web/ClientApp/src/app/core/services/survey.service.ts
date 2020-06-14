@@ -15,6 +15,10 @@ export class SurveyService {
     return this.http.get<Survey[]>('/api/v1/surveys');
   }
 
+  getFeatured() : Observable<Survey[]> {
+    return this.http.get<Survey[]>('/api/v1/surveys/featured');
+  }
+
   getById(id: number) {
     return this.http.get<Survey>(`/api/v1/surveys/${id}`);
   }

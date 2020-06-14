@@ -9,7 +9,7 @@ import { Question } from 'src/app/core/models/question';
   styleUrls: ['./survey-preview.component.scss']
 })
 export class SurveyPreviewComponent implements OnInit {
-  @Input() survey : Survey;
+  @Input() survey: Survey;
   filteredQuestions: Question[];
 
   constructor() { }

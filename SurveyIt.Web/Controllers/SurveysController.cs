@@ -40,7 +40,7 @@ namespace SurveyIt.Web.Controllers
         [HttpGet("featured")]
         public ActionResult<List<SurveyDTO>> GetFeateredSurveys()
         {
-            var surveys = _surveyRepository.GetAll().Take(4);
+            var surveys = _surveyRepository.GetAll().OrderBy(s => s.Id).Take(3);
 
             return _mapper.Map<List<SurveyDTO>>(surveys);
         }

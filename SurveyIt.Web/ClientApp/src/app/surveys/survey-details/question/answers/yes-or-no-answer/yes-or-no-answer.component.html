@@ -1,1 +1,5 @@
-<p>yes-or-no-answer works!</p>
+<div [formGroup]="parentForm">
+  <div formArrayName="answers">
+    <input type="text" [formControlName]="index">
+  </div>
+</div>

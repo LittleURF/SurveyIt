@@ -3,8 +3,8 @@ import { Completion } from './completion';
 
 export class User implements Deserializable {
     id: number;
+    name: string;
     creationDate: Date;
-    completions: Completion[];
 
     deserialize(input: any): this {
         return Object.assign(this, input);

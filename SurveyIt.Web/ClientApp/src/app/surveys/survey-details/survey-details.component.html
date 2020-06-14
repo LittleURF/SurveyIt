@@ -8,16 +8,19 @@
   <div class="description-wrapper">
     <p>{{ survey.description || 'No description provided' }} </p>
   </div>
-  <div class="questions">
-    <app-question
-     *ngFor="let question of survey.questions; let i = index"
-      [question]="question"
-      [index]="i"
-      class="question">
-    </app-question>
-  </div>
-  <div class="buttons">
-    <a *ngIf="!isCompleted" routerLink="" class="button-submit">Submit!</a>
-    <a *ngIf="isCompleted" routerLink="" class="button-results">Results</a>
-  </div>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="survey-form">
+    <div class="questions">
+      <app-question
+       *ngFor="let question of survey.questions; let i = index"
+        [question]="question"
+        [index]="i"
+        [parentForm]="surveyForm"
+        class="question">
+      </app-question>
+    </div>
+    <div class="buttons">
+      <button *ngIf="!isCompleted" type="submit" class="button-submit">Submit!</button>
+      <a *ngIf="isCompleted" class="button-results">Results</a>
+    </div>
+  </form>
 </div>
