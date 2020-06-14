@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SurveyIt.Domain.Aggregates.SurveyAggregate;
@@ -60,6 +61,7 @@ namespace SurveyIt.Web.Controllers
 
         // api/v1/surveys
         [HttpPost]
+        [Authorize]
         public ActionResult AddSurvey(CreateSurveyDTO survey)
         {
             var newSurvey = _mapper.Map<Survey>(survey);

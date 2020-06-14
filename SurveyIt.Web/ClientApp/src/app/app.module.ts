@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,7 @@ import { QuestionComponent } from './surveys/survey-details/question/question.co
 import { OpenAnswerComponent } from './surveys/survey-details/question/answers/open-answer/open-answer.component';
 import { YesOrNoAnswerComponent } from './surveys/survey-details/question/answers/yes-or-no-answer/yes-or-no-answer.component';
 import { RatingAnswerComponent } from './surveys/survey-details/question/answers/rating-answer/rating-answer.component';
+import { InterceptorService } from './core/services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,13 @@ import { RatingAnswerComponent } from './surveys/survey-details/question/answers
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
