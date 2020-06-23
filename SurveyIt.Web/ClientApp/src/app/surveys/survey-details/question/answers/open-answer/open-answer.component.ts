@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormArray } from '@angular/forms';
 import { Question } from 'src/app/core/models/question';
 
 @Component({
@@ -9,11 +9,14 @@ import { Question } from 'src/app/core/models/question';
 })
 export class OpenAnswerComponent implements OnInit {
   @Input() index: number;
+  @Input() value: string;
   @Input() parentForm: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
+    const answers = this.parentForm.get(`answers`) as FormArray;
+    answers.controls[this.index].setValue(this.value);
   }
 
 }

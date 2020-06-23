@@ -8,10 +8,8 @@
   min-height: 30rem;
   margin: 3rem auto;
   background-color: rgb(241, 240, 240);
-  box-shadow: 0px 0px 5px black;
+  box-shadow: 2px 2px 10px black;
 }
-
-
 
 .main-image-wrapper {
   grid-area: first-row / first-col / 3 / 3;
@@ -57,7 +55,7 @@
   bottom: 0px;
   height: 1px;
   width: 100%;
-  background-color: $gray;
+  background-color: rgb(201, 201, 201);
 }
 
 .questions {
@@ -69,28 +67,41 @@
   grid-area: 4 / 1 / last-row / last-col;
   justify-self: center;
 
-  a {
+  a, button {
     display: inline-block;
     width: 8rem;
-    height: 1.2rem;
+    height: 3.2rem;
     font-size: 1rem;
-    text-align: center;
-    line-height: 1.2rem;
     padding: 1rem;
     margin: 1rem;
     text-decoration: none;
+    color: white;
+    text-align: center;
+    line-height: 1.2rem;
+    transform: rotateY(0deg);
+
+    span {
+      display: block;
+      transition: transform 1s;
+    }
+
+    &:hover > span {
+      transform: rotateY(360deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .button-submit {
-    color: white;
     margin-right: 1em;
-    border: 1px solid rgb(170, 168, 168);
-    background-color: $gray;
+    background-color: $blue;
+    border: none;
   }
 
   .button-results {
-    color: black;
-    background-color: white;
+    background-color: $gray;
     border: 1px solid rgb(170, 168, 168);
   }
 }

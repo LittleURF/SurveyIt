@@ -14,7 +14,7 @@ namespace SurveyIt.Web.DTOs
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreationDate { get; set; }
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
         public List<QuestionDTO> Questions { get; set; }
         public List<CompletionDTO> Completions { get; set; }
     }

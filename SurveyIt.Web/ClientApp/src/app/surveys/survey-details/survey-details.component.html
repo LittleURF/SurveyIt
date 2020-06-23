@@ -9,18 +9,20 @@
     <p>{{ survey.description || 'No description provided' }} </p>
   </div>
   <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()" class="survey-form">
-    <div class="questions">
+    <div class="questions" [class.completed]="isCompleted">
       <app-question
        *ngFor="let question of survey.questions; let i = index"
         [question]="question"
+        [answer]="completion.answers[i]"
         [index]="i"
         [parentForm]="surveyForm"
         class="question">
       </app-question>
     </div>
     <div class="buttons">
-      <button *ngIf="!isCompleted" type="submit" class="button-submit">Submit!</button>
-      <a *ngIf="isCompleted" class="button-results">Results</a>
+      <button *ngIf="!isCompleted" type="submit" class="button-submit"><span>Submit!</span></button>
+      <a *ngIf="isCompleted" class="button-results"><span>Results</span></a>
+      <!-- *ngIf="isCompleted" -->
     </div>
   </form>
 </div>

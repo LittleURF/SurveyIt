@@ -1,0 +1,65 @@
+@mixin input-animation-1($element, $border-x, $border-y, $color) {
+
+  #{$border-x}::before,
+  #{$border-x}::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #{$color};
+    transition: 0.3s;
+  }
+
+  #{$border-x}::after {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 0;
+  }
+
+  #{$border-y}::before,
+  #{$border-y}::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background-color: #{$color};
+    transition: 0.4s;
+  }
+
+  #{$border-y}::after {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: 0;
+  }
+
+  #{$element}:focus ~ #{$border-x}::before,
+  #{$element}:focus ~ #{$border-x}::after,
+  #{$element}:checked ~ #{$border-x}::before,
+  #{$element}:checked ~ #{$border-x}::after {
+    width: 100%;
+    transition: 0.3s;
+  }
+
+  #{$element}:focus ~ #{$border-x} ~ #{$border-y}::before,
+  #{$element}:focus ~ #{$border-x} ~ #{$border-y}::after,
+  #{$element}:checked ~ #{$border-x} ~ #{$border-y}::before,
+  #{$element}:checked ~ #{$border-x} ~ #{$border-y}::after {
+    height: 100%;
+    transition: 0.4s;
+  }
+}
+
+@mixin disabled($grayscale){
+  .disabled {
+    filter:#{"grayscale(#{$grayscale})"};
+    cursor: none;
+    pointer-events: none;
+  }
+
+}

@@ -11,12 +11,12 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
         public int Id { get; private set; }
         public int SurveyId { get; private set; }
         public Survey Survey { get; private set; }
-        public int CompletingUserId { get; private set; }
+        public string CompletingUserId { get; private set; }
         public DateTime CompletionDate { get; private set; }
         public IReadOnlyList<Answer> Answers => _answers;
         private readonly List<Answer> _answers;
 
-        public Completion(Survey survey, List<Answer> answers, int completingUserId)
+        public Completion(Survey survey, List<Answer> answers, string completingUserId)
         {
             Survey = survey;
             SurveyId = survey.Id;
@@ -30,7 +30,7 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
 
         public void Validate()
         {
-            if (CompletingUserId == 0)
+            if (String.IsNullOrWhiteSpace(CompletingUserId) || CompletingUserId == "0")
                 throw new MissingDataException("Completing User Id unspecified");
 
             if (!IsNotAlreadyCompleted())

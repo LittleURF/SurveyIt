@@ -9,7 +9,7 @@ namespace SurveyIt.Web.DTOs.CreateDTOs
     public class CreateCompletionDTO
     {
         public int SurveyId { get; set; }
-        public int CompletingUserId { get; set; }
+        public string CompletingUserId { get; set; }
         public List<CreateAnswerDTO> Answers { get; set; }
     }
 }

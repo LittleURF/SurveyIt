@@ -1,0 +1,57 @@
+@import '../../../../../../variables';
+@import '../../../../../../mixins';
+
+.yes-or-no-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.yes-or-no-element {
+  position: relative;
+  margin: .3rem;
+}
+
+.yes-or-no-element label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bolder;
+  color: rgb(202, 202, 202);
+  transition: 0.4s;
+}
+
+input[type="radio"] {
+  box-sizing: border-box;
+  appearance: none;
+  display: block;
+  width: 15rem;
+  height: 5rem;
+  margin: 0;
+  border: 1px solid rgb(202, 202, 202);
+  background-color: rgb(245, 245, 245);
+  transition: 0.2s;
+
+  &:hover {
+    box-shadow: 0px 1px 5px 2px $blue;
+  }
+
+  &:checked {
+    box-shadow: 0px 1px 2px 0px $blue;
+  }
+
+  &:checked ~ label,
+  &:focus ~ label {
+    color: $blue;
+  }
+}
+
+@include disabled(40%);
+
+@include input-animation-1('input', '.focus-border-x', '.focus-border-y', $blue);
+@include input-animation-1('input', '.focus-border-x', '.focus-border-y', $blue);

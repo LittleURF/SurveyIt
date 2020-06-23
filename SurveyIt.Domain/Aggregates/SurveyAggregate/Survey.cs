@@ -16,7 +16,7 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
         private const int MAX_QUESTIONS = 50;
 
         public int Id { get; private set; }
-        public int CreatorId { get; private set; }
+        public string CreatorId { get; private set; }
         public string Title { get; private set; }
         public string Description { get; private set; }
         public DateTime CreationDate { get; private set; }
@@ -26,7 +26,7 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
         private readonly List<Question> _questions;
 
 
-        public Survey(int creatorId, string title, List<Question> questions, string description = null, List<Completion> completions = null)
+        public Survey(string creatorId, string title, List<Question> questions, string description = null, List<Completion> completions = null)
         {
             CreatorId = creatorId;
             Title = title;
@@ -41,7 +41,7 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
 
         public void Validate()
         {
-            if (CreatorId == 0)
+            if (String.IsNullOrWhiteSpace(CreatorId) || CreatorId == "0")
                 throw new MissingDataException("Creator Id unspecified");
 
             if (String.IsNullOrWhiteSpace(Title))

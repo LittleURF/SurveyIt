@@ -1,0 +1,21 @@
+@import "../../../../../../variables";
+@import "../../../../../../mixins";
+.textarea-wrapper {
+  display: flex;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 5rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: 0.4s;
+}
+
+@include disabled(40%);
+@include input-animation-1('textarea', '.focus-border-x', '.focus-border-y', $blue);

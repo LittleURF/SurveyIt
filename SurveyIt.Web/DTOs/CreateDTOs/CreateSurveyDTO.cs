@@ -10,7 +10,7 @@ namespace SurveyIt.Web.DTOs.CreateDTOs
 {
     public class CreateSurveyDTO
     {
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public List<CreateQuestionDTO> Questions { get; set; }

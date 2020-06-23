@@ -1,5 +1,29 @@
-<div [formGroup]="parentForm">
+<div [formGroup]="parentForm" [class.disabled]="value != null">
   <div formArrayName="answers">
-    <input type="text" [formControlName]="index">
+    <div class="rating-wrapper">
+      <span class="rating-text">-</span>
+        <label [for]="'1' + index" class="radio">
+          <input type="radio" [name]="index" [id]="'1' + index" value="1" [formControlName]="index" class="hidden"/>
+          <span class="label"></span>
+        </label>
+        <label [for]="'2' + index" class="radio">
+          <input type="radio" [name]="index" [id]="'2' + index" value="2" [formControlName]="index" class="hidden"/>
+          <span class="label"></span>
+        </label>
+        <label [for]="'3' + index" class="radio">
+          <input type="radio" [name]="index" [id]="'3' + index" value="3" [formControlName]="index" class="hidden" checked/>
+          <span class="label"></span>
+        </label>
+        <label [for]="'4' + index" class="radio">
+          <input type="radio" [name]="index" [id]="'4' + index" value="4" [formControlName]="index" class="hidden"/>
+          <span class="label"></span>
+        </label>
+        <label [for]="'5' + index" class="radio">
+          <input type="radio" [name]="index" [id]="'5' + index" value="5" [formControlName]="index" class="hidden"/>
+          <span class="label"></span>
+        </label>
+      <span class="rating-text">+</span>
+      <!-- <input type="text" [formControlName]="index"> -->
+    </div>
   </div>
 </div>

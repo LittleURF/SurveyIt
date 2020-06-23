@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
     position: relative;
     min-height: 100vh;
     margin: 0;
     padding-bottom: 8.5rem;
     font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+ }
+
+ textarea, input {
+  font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif;
+ }
+
+ textarea:focus, input:focus {
+  outline: none;
  }

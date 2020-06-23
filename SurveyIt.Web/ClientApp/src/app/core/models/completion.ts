@@ -6,6 +6,7 @@ import { Answer } from './answer';
 export class Completion implements Deserializable {
     id: number;
     completionDate: Date;
+    completingUserId: string;
     answers: Answer[];
 
     deserialize(input: any): this {

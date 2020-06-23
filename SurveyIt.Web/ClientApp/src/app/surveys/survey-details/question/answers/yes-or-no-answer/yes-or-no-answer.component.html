@@ -1,5 +1,19 @@
-<div [formGroup]="parentForm">
+<div [formGroup]="parentForm" [class.disabled]="value != null">
   <div formArrayName="answers">
-    <input type="text" [formControlName]="index">
+    <div class="yes-or-no-list">
+      <!-- <input type="radio" [formControlName]="index"> -->
+      <div class="yes-or-no-element">
+        <input type="radio" [name]="index" [id]="'1' + index" [formControlName]="index" value="0">
+        <label [for]="'1' + index">No</label>
+        <div class="focus-border-x"></div>
+        <div class="focus-border-y"></div>
+      </div>
+      <div class="yes-or-no-element">
+        <input type="radio" [name]="index" [id]="'2' + index" [formControlName]="index" value="1">
+        <label [for]="'2' + index">Yes</label>
+        <div class="focus-border-x"></div>
+        <div class="focus-border-y"></div>
+      </div>
+    </div>
   </div>
 </div>

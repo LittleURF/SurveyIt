@@ -1,5 +1,9 @@
-<div [formGroup]="parentForm">
+<div [formGroup]="parentForm" [class.disabled]="value != null">
   <div formArrayName="answers">
-    <input type="text" [formControlName]="index">
+    <div class="textarea-wrapper">
+      <textarea placeholder="Your answer..." maxlength=3500 [formControlName]="index" [value]="value"></textarea>
+      <div class="focus-border-x"></div>
+      <div class="focus-border-y"></div>
+  </div>
   </div>
 </div>

@@ -9,7 +9,7 @@ export class Survey implements Deserializable {
     title: string;
     description: string;
     creationDate: Date;
-    creatorId: number;
+    creatorId: string;
     questions: Question[];
     completions: Completion[];
 
