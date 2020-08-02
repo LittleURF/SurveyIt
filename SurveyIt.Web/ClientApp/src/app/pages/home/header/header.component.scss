@@ -23,6 +23,7 @@ header > div {
   font-weight: normal;
   letter-spacing: 0.01rem;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .description {
@@ -31,34 +32,40 @@ header > div {
   margin-bottom: 3rem;
 }
 
-.button {
-  display: inline-block;
-  width: 8rem;
-  font-size: 1rem;
-  text-align: center;
-  line-height: 1.2rem;
-  padding: 1em;
-  text-decoration: none;
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 
-  span {
+  .button {
     display: inline-block;
-    transition: transform 1s;
+    width: 8rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.2rem;
+    padding: 1em;
+    text-decoration: none;
+
+    span {
+      display: inline-block;
+      transition: transform 1s;
+    }
+
+    &:hover span {
+      transform: rotateY(360deg);
+    }
   }
 
-  &:hover span {
-    transform: rotateY(360deg);
+  .button-about {
+    color: black;
+    border: 1px solid rgb(206, 206, 206);
+    margin-right: 1em;
   }
-}
 
-.button-about {
-  color: black;
-  border: 1px solid rgb(206, 206, 206);
-  margin-right: 1em;
-}
-
-.button-create {
-  color: white;
-  background-color: $primary-light;
+  .button-create {
+    color: white;
+    background-color: $primary-light;
+  }
 }
 
 .image-panel img {
@@ -67,4 +74,12 @@ header > div {
 }
 
 @media (min-width: 992px) {
+  .logo {
+    text-align: left;
+  }
+
+  .buttons {
+    display: initial;
+    margin-bottom: initial;
+  }
 }

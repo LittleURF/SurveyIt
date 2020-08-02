@@ -3,6 +3,7 @@ import { Question } from 'src/app/core/models/question';
 import { QuestionType } from 'src/app/core/enums/question-type';
 import { FormGroup } from '@angular/forms';
 import { Answer } from 'src/app/core/models/answer';
+import { SurveyStateService } from 'src/app/core/services/survey-state.service';
 
 @Component({
   selector: 'app-question',
@@ -14,13 +15,15 @@ export class QuestionComponent implements OnInit {
   @Input() answer: Answer;
   @Input() index: number;
   @Input() parentForm: FormGroup;
-
+  isReadonly: boolean;
   questionType = QuestionType;
 
-  constructor() { }
+  constructor(private surveyStateService: SurveyStateService) { }
 
   ngOnInit(): void {
-    console.log(this.answer);
+    if (this.surveyStateService.questionsReadOnly){
+      this.isReadonly = true;
+    }
   }
 
 }

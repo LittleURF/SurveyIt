@@ -1,9 +1,21 @@
-<div [formGroup]="parentForm" [class.disabled]="value != null">
-  <div formArrayName="answers">
-    <div class="textarea-wrapper">
-      <textarea placeholder="Your answer..." maxlength=3500 [formControlName]="index" [value]="value"></textarea>
-      <div class="focus-border-x"></div>
-      <div class="focus-border-y"></div>
+<ng-container *ngIf="isReadonly === false; else readonly">
+  <div [formGroup]="parentForm" [class.disabled]="value != null">
+    <div formArrayName="answers">
+      <div class="textarea-wrapper">
+        <textarea placeholder="Your answer..." maxlength=3500 [formControlName]="index" [value]="value"></textarea>
+        <div class="focus-border-x"></div>
+        <div class="focus-border-y"></div>
+      </div>
+    </div>
   </div>
+</ng-container>
+
+<ng-template #readonly>
+  <div class="disabled">
+    <div>
+      <div class="textarea-wrapper">
+        <textarea [value]="value"></textarea>
+      </div>
+    </div>
   </div>
-</div>
+</ng-template>

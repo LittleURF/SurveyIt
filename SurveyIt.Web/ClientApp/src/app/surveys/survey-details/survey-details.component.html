@@ -21,8 +21,7 @@
     </div>
     <div class="buttons">
       <button *ngIf="!isCompleted" type="submit" class="button-submit"><span>Submit!</span></button>
-      <a *ngIf="isCompleted" class="button-results"><span>Results</span></a>
-      <!-- *ngIf="isCompleted" -->
+      <a *ngIf="isCompleted" [routerLink]="['results']" class="button-results"><span>Results</span></a>
     </div>
   </form>
 </div>

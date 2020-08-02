@@ -2,8 +2,10 @@
   <div class="text-panel">
     <h1 class="logo">Survey It !</h1>
     <h2 class="description">The coolest survey creator!</h2>
-    <a routerLink="/" class="button button-about"><span>About us</span></a>
-    <a routerLink="/" class="button button-create"><span>Create!</span></a>
+    <div class="buttons">
+      <a [routerLink]="['/']" class="button button-about"><span>About us</span></a>
+      <a [routerLink]="['surveys', 'create']" class="button button-create"><span>Create!</span></a>
+    </div>
   </div>
   <div class="image-panel">
     <img src="../../../assets/img/headerimg2.png" alt="">

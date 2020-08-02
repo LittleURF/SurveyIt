@@ -1,9 +1,21 @@
-<div>
-  <span class="question-counter">{{ index }}.</span>
-  <p class="question-text">{{ question.text }}</p>
-</div>
+<ng-container *ngIf="this.isReadonly === false; else readonly">
+  <div [formGroup]="parentForm" >
+    <ng-container formArrayName="questions">
+    <span class="question-counter">{{ index }}.</span>
+    <input type="text" class="question-text" placeholder="Your Question..." value="asdasd" [formControlName]="index">
+  </ng-container>
+  </div>
+</ng-container>
+
 <div [ngSwitch]="question.type" class="answer">
-  <app-open-answer *ngSwitchCase="questionType.Open" [value]="answer.value" [index]="index" [parentForm]="parentForm"></app-open-answer>
-  <app-yes-or-no-answer *ngSwitchCase="questionType.YesOrNo" [value]="answer.value" [index]="index" [parentForm]="parentForm"></app-yes-or-no-answer>
-  <app-rating-answer *ngSwitchCase="questionType.Rating" [value]="answer.value" [index]="index" [parentForm]="parentForm"></app-rating-answer>
+  <app-open-answer *ngSwitchCase="questionType.Open" [value]="answer?.value" [index]="index" [parentForm]="parentForm"></app-open-answer>
+  <app-yes-or-no-answer *ngSwitchCase="questionType.YesOrNo" [value]="answer?.value" [index]="index" [parentForm]="parentForm"></app-yes-or-no-answer>
+  <app-rating-answer *ngSwitchCase="questionType.Rating" [value]="answer?.value" [index]="index" [parentForm]="parentForm"></app-rating-answer>
 </div>
+
+<ng-template #readonly>
+  <div>
+    <span class="question-counter">{{ index }}.</span>
+    <p class="question-text">{{ question.text }}</p>
+  </div>
+</ng-template>

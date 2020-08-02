@@ -14,6 +14,7 @@ import { Observable, forkJoin } from 'rxjs';
   templateUrl: './survey-details.component.html',
   styleUrls: ['./survey-details.component.scss'],
 })
+
 export class SurveyDetailsComponent implements OnInit {
   survey: Survey;
   isCompleted = false;

@@ -1,0 +1,40 @@
+<div class="wrapper">
+  <div class="main-image-wrapper">
+    <img src="../../../assets/img/babyYoda.jpeg" alt="">
+  </div>
+  <div class="title-wrapper">
+    <h1>{{ 'Title' }}</h1>
+  </div>
+  <div class="description-wrapper">
+    <p>{{ 'Description' }}</p>
+  </div>
+  <form *ngIf="surveyStateService.createSurveyForm" [formGroup]="surveyStateService.createSurveyForm" (ngSubmit)="onSubmit()" class="survey-form">
+    <div *ngIf="questions.length !== 0;else noQuestions" class="questions" formArrayName="questions"> <!-- If questions not empty-->
+      <app-question
+       *ngFor="let question of questions; let i = index"
+        [question]="question"
+        [index]="i"
+        [parentForm]="surveyStateService.createSurveyForm"
+        class="question">
+      </app-question>
+    </div>
+    <ng-template #noQuestions>
+      <div class="no-questions">
+        <h2>No questions</h2>
+        <p>Use the buttons below to add one!</p>
+      </div>
+    </ng-template>
+    <div class="add-question">
+      <button type="button" class="add-button add-button-open" (click)="addQuestion(questionType.Open)">
+        <img src="../../../assets/img/questionOpen.svg">
+      </button>
+      <button type="button" class="add-button add-button-rating" (click)="addQuestion(questionType.Rating)">
+        <img src="../../../assets/img/questionRating.svg">
+      </button>
+      <button type="button" class="add-button add-button-yes-or-no" (click)="addQuestion(questionType.YesOrNo)">
+        <img src="../../../assets/img/questionYesOrNo.svg">
+      </button>
+    </div>
+    <button type="submit" class="button-submit"><span>Submit!</span></button>
+  </form>
+</div>

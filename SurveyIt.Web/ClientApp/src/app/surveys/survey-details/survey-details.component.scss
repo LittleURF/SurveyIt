@@ -79,6 +79,8 @@
     text-align: center;
     line-height: 1.2rem;
     transform: rotateY(0deg);
+    border: none;
+
 
     span {
       display: block;
@@ -97,12 +99,12 @@
   .button-submit {
     margin-right: 1em;
     background-color: $blue;
-    border: none;
+    box-shadow: 0px 1px 3px 1px $gray;
   }
 
   .button-results {
     background-color: $gray;
-    border: 1px solid rgb(170, 168, 168);
+    box-shadow: 0px 1px 3px 1px darken($color:$gray, $amount: 20);
   }
 }
 
