@@ -4,15 +4,17 @@ import { SurveyService } from 'src/app/core/services/survey.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Answer } from 'src/app/core/models/answer';
-import { PostCompletionRequest } from 'src/app/core/request-templates/post-completion-request';
+import { PostCompletionRequestBody } from 'src/app/core/request-templates/post-completion-request-body';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Completion } from 'src/app/core/models/completion';
 import { Observable, forkJoin } from 'rxjs';
+import { SurveyStateService } from 'src/app/core/services/survey-state.service';
 
 @Component({
   selector: 'app-survey-details',
   templateUrl: './survey-details.component.html',
   styleUrls: ['./survey-details.component.scss'],
+  providers: [SurveyStateService]
 })
 
 export class SurveyDetailsComponent implements OnInit {
@@ -22,10 +24,13 @@ export class SurveyDetailsComponent implements OnInit {
   surveyForm: FormGroup;
   userId: string;
 
-  constructor(private surveyService: SurveyService, private authService: AuthService, private route: ActivatedRoute) {}
+  constructor(private surveyService: SurveyService, private surveyStateService: SurveyStateService,
+              private authService: AuthService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = this.getIdFromRoute();
+    this.surveyStateService.questionsReadOnly = true;
+    this.surveyStateService.answersReadOnly = false;
 
     forkJoin({
       user: this.authService.getUser$(),
@@ -38,6 +43,7 @@ export class SurveyDetailsComponent implements OnInit {
       if (completedBy.includes(this.userId)){
         this.isCompleted = true;
         this.completion = data.survey.completions.find(c => c.completingUserId === this.userId);
+        this.surveyStateService.answersReadOnly = true;
       }
 
       this.initializeForm();
@@ -62,7 +68,7 @@ export class SurveyDetailsComponent implements OnInit {
       return;
     }
 
-    const requestBody: PostCompletionRequest = {
+    const requestBody: PostCompletionRequestBody = {
       surveyId: this.survey.id,
       completingUserId: this.userId,
       answers: []
@@ -75,7 +81,12 @@ export class SurveyDetailsComponent implements OnInit {
         } as Answer);
     });
 
-    this.surveyService.postCompletion(requestBody).subscribe();
+    this.surveyService.postCompletion(requestBody).subscribe(data => {
+      this.isCompleted = true;
+      this.completion = data;
+      this.surveyStateService.answersReadOnly = true;
+      console.log(data);
+    });
   }
 
   getIdFromRoute(): number {

@@ -7,7 +7,7 @@
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
         <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/">About</a></li>
+        <li><a [routerLink]="['about-us']">About</a></li>
         <li><a routerLink="/">Contact</a></li>
       <div class="right-side-nav-items">
         <li *ngIf="!authService.loggedIn">

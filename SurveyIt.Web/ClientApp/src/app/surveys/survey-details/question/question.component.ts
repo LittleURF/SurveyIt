@@ -15,7 +15,7 @@ export class QuestionComponent implements OnInit {
   @Input() answer: Answer;
   @Input() index: number;
   @Input() parentForm: FormGroup;
-  isReadonly: boolean;
+  isReadonly = false;
   questionType = QuestionType;
 
   constructor(private surveyStateService: SurveyStateService) { }

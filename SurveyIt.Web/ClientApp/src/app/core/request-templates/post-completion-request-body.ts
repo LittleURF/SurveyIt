@@ -1,7 +1,7 @@
 import { Answer } from '../models/answer';
 
 
-export class PostCompletionRequest {
+export class PostCompletionRequestBody {
     surveyId: number;
     completingUserId: string;
     answers: Answer[];

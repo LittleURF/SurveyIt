@@ -21,9 +21,6 @@ namespace SurveyIt.Domain.Aggregates.SurveyAggregate
             if (!Enum.IsDefined(typeof(QuestionType), type))
                 throw new ArgumentException("Question type is not specified", nameof(type));
 
-            if (spotInSequence == 0)
-                throw new ArgumentException("SpotInSequence unspecified, questions need to be ordered.", nameof(spotInSequence));
-
             Text = text;
             Type = type;
             SpotInSequence = spotInSequence;

@@ -1,3 +1,5 @@
 <div *ngIf="survey" class="survey-results">
-  <h2>{{ survey.title  }}</h2>
+  <h2 class="main-headline">Results - {{ survey.title  }}</h2>
+  <p class="statistic">Survey finished by {{ survey.completions.length }}</p>
+  <app-navigate-back></app-navigate-back>
 </div>

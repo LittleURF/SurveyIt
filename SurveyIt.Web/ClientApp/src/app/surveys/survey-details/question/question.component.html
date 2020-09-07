@@ -1,10 +1,10 @@
 <ng-container *ngIf="this.isReadonly === false; else readonly">
-  <div [formGroup]="parentForm" >
+  <ng-container [formGroup]="parentForm" >
     <ng-container formArrayName="questions">
     <span class="question-counter">{{ index }}.</span>
-    <input type="text" class="question-text" placeholder="Your Question..." value="asdasd" [formControlName]="index">
+    <textarea class="question-text" placeholder="Your Question..." [(ngModel)]="question.text" [formControlName]="index" ></textarea>
+    </ng-container>
   </ng-container>
-  </div>
 </ng-container>
 
 <div [ngSwitch]="question.type" class="answer">

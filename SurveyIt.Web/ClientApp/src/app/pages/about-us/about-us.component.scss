@@ -1,0 +1,20 @@
+@import "../../../variables";
+
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+  max-width: 730px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.text-big {
+  font-size: 1.4rem;
+}
+
+.text-green {
+  color: $primary;
+}

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Completion } from '../models/completion';
-import { PostCompletionRequest } from '../request-templates/post-completion-request';
+import { PostCompletionRequestBody } from '../request-templates/post-completion-request-body';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,11 @@ export class SurveyService {
     return this.http.get<Survey>(`/api/v1/surveys/${id}`);
   }
 
-  postCompletion(requestBody: PostCompletionRequest): Observable<Completion> {
+  postCompletion(requestBody: PostCompletionRequestBody): Observable<Completion> {
     return this.http.post<Completion>('api/v1/surveys/completions', requestBody);
+  }
+
+  postNewSurvey(requestBody): Observable<Survey> {
+    return this.http.post<Survey>('api/v1/surveys', requestBody);
   }
 }

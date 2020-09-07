@@ -18,6 +18,7 @@ import { CoreModule } from './core/core.module';
 import { MatDialog, MatDialogModule, MatDialogActions } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     FeaturedComponent,
     HomeComponent,
     NotFoundComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
